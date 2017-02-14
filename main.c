@@ -18,7 +18,21 @@ int main() {
   
   clear_screen(s);
 
-  draw_line(250, 250, 432, 234, s, c);
+  //Slope of 1
+  draw_line(0, 0, 500, 500, s, c);
+
+  //Slope of -1
+  draw_line(0, 500, 500, 0, s, c);
+
+  //Slope of 0
+  draw_line(0, 250, 500, 250, s, c);
+
+  //Octant I
+  draw_line(250, 250, 500, 300, s, c);
+  draw_line(250, 250, 500, 350, s, c);
+  draw_line(250, 250, 500, 400, s, c);
+  draw_line(250, 250, 500, 450, s, c);
+
   display(s);
   save_extension(s, "lines.png");
 }  
