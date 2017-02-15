@@ -18,8 +18,11 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   slope = slope/(x1-x0);
   printf("Slope: %f\n", slope);
 
+  printf("X: %d\n", x);
+  printf("X1: %d\n", x1);
+
   //Octant I
-  if(slope < 1) {
+  if(slope <= 1 && slope >=0) {
     d = 2*A + B;
     while(x <= x1) {
       plot(s, c, x, y);
@@ -46,39 +49,33 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
     }
   }
 
-  //Slope = 1
-  if (slope == 1) {
+  //Octant VIII
+  if (slope < 0 && slope >-1) {
+    d = 2*A - B;
     while(x <= x1) {
       plot(s, c, x, y);
-      x++;
-      y++;
-    }
-  }
-
-  //Slope = -1
-  if (slope == -1) {
-    printf("Drawing Slope = -1\n");
-    if (x > x1) {
-      while(x >= x1) {
-	plot(s, c, x, y);
-	x++;
+      if (d < 0) {
 	y--;
+	d = -(2*B);
       }
-    }
-    else {
-      while (x <= x1) {
-	plot(s, c, x, y);
-	x--;
-	y++;
-      }
+      x++;
+      d+= 2*A;
     }
   }
 
   //Slope = 0
   if (slope == 0) {
-    while(x <= x1) {
-      plot (s, c, x, y);
-      x++;
+    if (x < x1){
+      while(x <= x1) {
+	plot (s, c, x, y);
+	x++;
+      }
+    }
+    else {
+      while(x >= x1) {
+	plot (s, c, x, y);
+	x--;
+      }
     }
   }
 }
