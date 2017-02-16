@@ -18,26 +18,54 @@ int main() {
   
   clear_screen(s);
 
-  //Slope of -1
-  draw_line(0, 500, 500, 0, s, c);
-
-  //Slope of 1
-  draw_line(0, 0, 500, 500, s, c);
-
-  //Slope of 0
-  draw_line(0, 250, 500, 250, s, c);
-
   //Octant I
-  draw_line(250, 250, 500, 300, s, c);
-  draw_line(250, 250, 500, 350, s, c);
-  draw_line(250, 250, 500, 400, s, c);
-  draw_line(250, 250, 500, 450, s, c);
+  //Left to right
+  draw_line(0, 250, 500, 250, s, c);
+  draw_line(0, 0, 500, 500, s, c);
+  draw_line(0, 0, 500, 300, s, c);
+  draw_line(0, 0, 500, 350, s, c);
+  //Right to left
+  draw_line(500, 400, 0, 0, s, c);
+  draw_line(500, 450, 0, 0, s, c);
 
   //Octant II
-  draw_line(250, 250, 300, 500, s, c);
-  draw_line(250, 250, 350, 500, s, c);
-  draw_line(250, 250, 400, 500, s, c);
-  draw_line(250, 250, 450, 500, s, c);
+  //Left to right
+  draw_line(0, 0, 250, 500, s, c);
+  draw_line(0, 0, 300, 500, s, c);
+  draw_line(0, 0, 350, 500, s, c);
+  //Right to left
+  draw_line(400, 500, 0, 0, s, c);
+  draw_line(450, 500, 0, 0, s, c);
+
+  //Octant VIII
+  //Left to right
+  draw_line(0, 500, 500, 0, s, c);
+  draw_line(0, 500, 500, 200, s, c);
+  draw_line(0, 500, 500, 150, s, c);
+  //Right to left
+  draw_line(500, 100, 0, 500, s, c);
+  draw_line(500, 50, 0, 500, s, c);
+
+  //Octant VII
+  //Left to right
+  draw_line(0, 500, 250, 0, s, c);
+  draw_line(0, 500, 300, 0, s, c);
+  draw_line(0, 500, 350, 0, s, c);
+  //Right to left
+  draw_line(400, 0, 0, 500, s, c);
+  draw_line(450, 0, 0, 500, s, c);
+
+
+  //Vertical Lines
+  //Up down
+  draw_line(0, 0, 0, 500, s, c);
+  draw_line(150, 0, 150, 500, s, c);
+  draw_line(200, 0, 200, 500, s, c);
+  //Down up
+  draw_line(50, 500, 50, 0, s, c);
+  draw_line(100, 500, 100, 0, s, c);
+  draw_line(250, 500, 250, 0, s, c);
+
 
   display(s);
   save_extension(s, "lines.png");
